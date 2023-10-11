@@ -72,10 +72,6 @@ public class Login extends AppCompatActivity {
                 String email = editTextEmail.getText().toString().trim(); // trim() removes leading and trailing spaces
                 String password = editTextPassword.getText().toString().trim();
 
-                //Or Can use below code
-//                String email, password;
-//                email = editTextEmail.getText().toString().trim();
-//                password = editTextPassword.getText().toString().trim();
 
                 //chechikng if email is empty
                 if(TextUtils.isEmpty(email)){
