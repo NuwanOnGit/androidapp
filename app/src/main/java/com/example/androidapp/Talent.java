@@ -35,6 +35,7 @@ public class Talent extends AppCompatActivity {
 
                 int itemId = item.getItemId();
 
+
                 if (itemId == R.id.talent) {
                     finish();
                     return true;

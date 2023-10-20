@@ -3,11 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/eventCard"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -34,7 +36,7 @@
                     android:id="@+id/eventTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
+                    android:textSize="24dp"
                     android:text="Title"
                     android:textAppearance="?attr/textAppearanceTitleMedium" />
 
@@ -117,8 +119,17 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="0dp"
                 android:orientation="horizontal"/>
+            <Button
+                android:layout_margin="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Join"
+                android:id="@+id/btn_join">
+
+            </Button>
 
         </LinearLayout>
+
 
     </androidx.cardview.widget.CardView>
 
