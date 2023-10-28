@@ -94,11 +94,14 @@ public class Register extends AppCompatActivity {
 
                                     // Store user information under 'users' node with UID as the key
                                     DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference().child("users").child(uid);
-                                    usersRef.child("email").setValue(email);
+                                    usersRef.child("userEmail").setValue(email);
                                     // You can add more user data to the database if needed
-                                    usersRef.child("username").setValue("");
-                                    usersRef.child("profilepicture").setValue("");
-                                    usersRef.child("bio").setValue("");
+                                    usersRef.child("userName").setValue("");
+                                    usersRef.child("userDp").setValue("");
+                                    usersRef.child("userBio").setValue("");
+                                    usersRef.child("userPhone").setValue("");
+                                    usersRef.child("userLocation").setValue("");
+                                    usersRef.child("userExpertise").setValue("");
 
 
 

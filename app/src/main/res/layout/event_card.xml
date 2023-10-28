@@ -11,18 +11,19 @@
         android:id="@+id/eventCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
         android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:cardCornerRadius="16dp"
         >
 
         <LinearLayout
+            android:layout_marginLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <!-- Media -->
 
             <!-- Buttons -->
             <LinearLayout
@@ -31,7 +32,7 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <!-- Title, secondary and supporting text -->
+                <!-- First Row - Title-->
                 <TextView
                     android:id="@+id/eventTitle"
                     android:layout_width="wrap_content"
@@ -40,11 +41,22 @@
                     android:text="Title"
                     android:textAppearance="?attr/textAppearanceTitleMedium" />
 
+
+                <!-- Second Row - Type, Date, Status -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="0dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+
+                    >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_info_24"
+                        android:layout_marginTop="14dp"
+                        />
 
 
                     <TextView
@@ -53,8 +65,18 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:text="Type"
+                        android:textSize="14dp"
                         android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textColor="?android:attr/textColorSecondary" />
+
+                    <ImageView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_date_range_24"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginLeft="10dp"
+                        />
 
                     <TextView
                         android:id="@+id/eventDate"
@@ -63,50 +85,83 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginLeft="8dp"
                         android:text="Date"
+                        android:textSize="14dp"
                         android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textColor="?android:attr/textColorSecondary" />
 
+                    <ImageView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_location_on_24"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginLeft="10dp"
+                        />
+
                     <TextView
-                        android:id="@+id/eventStatus"
+                        android:id="@+id/eventLocation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:layout_marginLeft="8dp"
                         android:text="Status"
+                        android:textSize="14dp"
                         android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textColor="?android:attr/textColorSecondary" />
                 </LinearLayout>
 
+                <!-- Second Row - Type, Date, Status  ends-->
+
+                <!-- 3rd Row Description-->
                 <TextView
                     android:id="@+id/eventDescription"
-                    android:layout_width="wrap_content"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="Description"
+                    android:textSize="16dp"
                     android:textAppearance="?attr/textAppearanceBodyMedium"
                     android:textColor="?android:attr/textColorSecondary" />
 
+                <!-- 3rd row Description ends-->
+
+                <!-- 4th Row - Required Individuals -->
                 <LinearLayout
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="0dp"
                     android:orientation="horizontal">
 
-                    <TextView
+                    <ImageView
+                        android:layout_marginTop="14dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/baseline_person_pin_24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
+                    </ImageView>
+
+
+                    <TextView
+                        android:id="@+id/lookingfor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="Required Idividuals :"
+                        android:text="Photographer"
+                        android:textSize="14dp"
+
                         android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textColor="?android:attr/textColorSecondary" />
 
                     <TextView
-                        android:id="@+id/count"
+                        android:id="@+id/eventTalentCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
+                        android:layout_marginLeft="10dp"
                         android:text="6"
+                        android:textSize="14dp"
                         android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textColor="?android:attr/textColorSecondary" />
                 </LinearLayout>
@@ -120,12 +175,14 @@
                 android:layout_margin="0dp"
                 android:orientation="horizontal"/>
             <Button
+
+                android:background="#6750A4"
                 android:layout_margin="16dp"
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Join"
                 android:id="@+id/btn_join">
-
             </Button>
 
         </LinearLayout>

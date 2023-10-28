@@ -1,62 +1,74 @@
 package com.example.androidapp;
 
 public class Event {
-    private String title, type, date, status, description,count;
+    private String eventTitle, eventType, eventDate, eventLocation, eventDescription,eventExpertise,eventTalentCount;
 
-    public Event(String name, String type, String date, String status, String description, String count) {
-        this.title = name;
-        this.type = type;
-        this.date = date;
-        this.status = status;
-        this.description = description;
-        this.count = count;
-    }
-    public String getTitle() {
-        return title;
-    }
+    public Event(String eventTitle,String eventType,String eventDate,String eventLocation,String eventDescription,String eventExpertise,String eventTalentCount) {
+        this.eventTitle = eventTitle;
+        this.eventType = eventType;
+        this.eventDate = eventDate;
+        this.eventLocation = eventLocation;
+        this.eventDescription = eventDescription;
+        this.eventExpertise = eventExpertise ;
+        this.eventTalentCount = eventTalentCount;
 
-    public void setTitle(String title) {
-        this.title = title;
+
     }
 
-    public String getType() {
-        return type;
+    public String getEventTitle() {
+        return eventTitle;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setEventTitle(String eventTitle) {
+        this.eventTitle = eventTitle;
     }
 
-    public String getDate() {
-        return date;
+    public String getEventType() {
+        return eventType;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setEventType(String eventType) {
+        this.eventType = eventType;
     }
 
-    public String getStatus() {
-        return status;
+    public String getEventDate() {
+        return eventDate;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setEventDate(String eventDate) {
+        this.eventDate = eventDate;
     }
 
-    public String getDescription() {
-        return description;
+    public String getEventLocation() {
+        return eventLocation;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setEventLocation(String eventLocation) {
+        this.eventLocation = eventLocation;
     }
 
-    public String getCount() {
-        return count;
+    public String getEventDescription() {
+        return eventDescription;
     }
 
-    public void setCount(String count) {
-        this.count = count;
+    public void setEventDescription(String eventDescription) {
+        this.eventDescription = eventDescription;
+    }
+
+    public String getEventExpertise() {
+        return eventExpertise;
+    }
+
+    public void setEventExpertise(String eventExpertise) {
+        this.eventExpertise = eventExpertise;
+    }
+
+    public String getEventTalentCount() {
+        return eventTalentCount;
+    }
+
+    public void setEventTalentCount(String eventTalentCount) {
+        this.eventTalentCount = eventTalentCount;
     }
 
     Event(){

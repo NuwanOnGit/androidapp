@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.example.androidapp.databinding.ActivityMainBinding;
@@ -29,15 +30,17 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    private SearchView searchView;
     FirebaseAuth mAuth; //auth
     Button button;
     TextView textView;
     FirebaseUser user;
     //Creating fab object
-     FloatingActionButton fab;
+    FloatingActionButton fab;
 
-     DatabaseReference reference;
-     RecyclerView recyclerView;
+    DatabaseReference reference;
+    RecyclerView recyclerView;
     ActivityMainBinding binding;
     //@SuppressLint({"NonConstantResourceId", "MissingInflatedId"})
     @Override
@@ -130,5 +133,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
 
 }

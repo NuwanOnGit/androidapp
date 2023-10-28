@@ -21,6 +21,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         this.list = list;
     }
 
+    public void setFilteredList(ArrayList<Event> filteredList) {
+        this.list = filteredList;
+        notifyDataSetChanged();
+    }
+
 
     @NonNull
     @Override
@@ -32,12 +37,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Event event = list.get(position);
-        holder.title.setText(event.getTitle());
-        holder.type.setText(event.getType());
-        holder.date.setText(event.getDate());
-        holder.status.setText(event.getStatus());
-        holder.description.setText(event.getDescription());
-        holder.count.setText(event.getCount());
+        holder.eventTitle.setText(event.getEventTitle());
+        holder.eventType.setText(event.getEventType());
+        holder.eventDate.setText(event.getEventDate());
+        holder.eventLocation.setText(event.getEventLocation());
+        holder.eventDescription.setText(event.getEventDescription());
+        holder.eventExpertise.setText(event.getEventExpertise());
+        holder.eventTalentCount.setText(event.getEventTalentCount());
 
     }
 
@@ -47,15 +53,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView title, type, date, status, description, count;
+        public TextView eventTitle, eventType, eventDate, eventLocation, eventDescription, eventExpertise,eventTalentCount;
         public MyViewHolder(View v) {
             super(v);
-            title = v.findViewById(R.id.eventTitle);
-            type = v.findViewById(R.id.eventType);
-            date = v.findViewById(R.id.eventDate);
-            status = v.findViewById(R.id.eventStatus);
-            description = v.findViewById(R.id.eventDescription);
-            count = v.findViewById(R.id.count);
+            eventTitle = v.findViewById(R.id.eventTitle);
+            eventType = v.findViewById(R.id.eventType);
+            eventDate = v.findViewById(R.id.eventDate);
+            eventLocation = v.findViewById(R.id.eventLocation);
+            eventDescription = v.findViewById(R.id.eventDescription);
+            eventExpertise = v.findViewById(R.id.lookingfor);
+            eventTalentCount = v.findViewById(R.id.eventTalentCount);
         }
     }
 
