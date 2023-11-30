@@ -6,15 +6,37 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".Register">
+    tools:context=".Register"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="2dp">
 
     <!--    E-mail field-->
 
-    <!--password field-->
-
     <com.google.android.material.textfield.TextInputLayout
 
-        android:id="@+id/textInputLayout"
+        android:id="@+id/usernameInputLayout"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="User Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.479">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userName"
+            android:layout_width="match_parent"
+            android:layout_height="56dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <!--password field-->
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/emailInputLayout"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="E-mail"
@@ -23,7 +45,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.262">
+        app:layout_constraintVertical_bias="0.607">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email"
@@ -34,9 +56,9 @@
 
     <com.google.android.material.textfield.TextInputLayout
 
-        android:id="@+id/textInputLayout2"
+        android:id="@+id/passwordInputLayout"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="115dp"
         android:hint="Password"
         app:endIconMode="password_toggle"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,7 +66,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.388">
+        app:layout_constraintVertical_bias="0.79">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password"
@@ -54,8 +76,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-
-    <!--    progress bar-->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
@@ -74,8 +94,10 @@
         android:text="Register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.881" />
 
     <TextView
         android:id="@+id/loginNow"
@@ -86,10 +108,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.573" />
+        app:layout_constraintVertical_bias="0.948" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

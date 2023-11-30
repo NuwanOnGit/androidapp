@@ -27,27 +27,23 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+
 
 public class MainActivity extends AppCompatActivity {
-
-
     private SearchView searchView;
     FirebaseAuth mAuth; //auth
     Button button;
     TextView textView;
     FirebaseUser user;
-    //Creating fab object
-    FloatingActionButton fab;
-
+    FloatingActionButton fab;//Creating fab object
     DatabaseReference reference;
     RecyclerView recyclerView;
     ActivityMainBinding binding;
-    //@SuppressLint({"NonConstantResourceId", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         recyclerView=findViewById(R.id.recyclerView);
         //Connecting to firebase
@@ -68,27 +64,25 @@ public class MainActivity extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot:snapshot.getChildren()){
-                    Event event=dataSnapshot.getValue(Event.class);
+                list.clear(); // Clear the list before adding new data
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Event event = dataSnapshot.getValue(Event.class);
                     list.add(event);
                 }
+                // Reverse the list to display it in reverse order
+                Collections.reverse(list);
                 adapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                // Handle onCancelled event
             }
         });
-
         //Bottom Navigation Bar code starts here
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottomNavigationView);
         // Set Home selected
         bottomNavigationView.setSelectedItemId(R.id.home);
-
-
-
-
         //Floating action button code starts here
         fab = findViewById(R.id.fab); // Assuming your FAB has the id 'fab' in your XML layout file
         fab.setOnClickListener(new View.OnClickListener() {
@@ -99,8 +93,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
         // Perform item selected listener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @SuppressLint("NonConstantResourceId")
@@ -131,9 +123,5 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
     }
-
-
-
 }

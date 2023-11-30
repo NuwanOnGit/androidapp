@@ -74,8 +74,6 @@ public class AddEvents extends AppCompatActivity {
                 String eventUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 String eventJoinedUid="";
 
-
-
                 // Get a reference to the database
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
 
@@ -172,7 +170,6 @@ public class AddEvents extends AppCompatActivity {
                                                   int monthOfYear, int dayOfMonth) {
                                 // on below line we are setting date to our text view.
                                 dateEditText.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
-
                             }
                         },
                         // on below line we are passing year,
