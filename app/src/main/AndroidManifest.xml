@@ -15,6 +15,33 @@
         android:theme="@style/Theme.Material3.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".MyReviews"
+            android:exported="false" />
+        <activity
+            android:name=".EditProfile"
+            android:exported="false" />
+        <activity
+            android:name=".ViewedPublishedEvent"
+            android:exported="false" />
+        <activity
+            android:name=".PublicProfile"
+            android:exported="false" />
+        <activity
+            android:name=".EditEvents"
+            android:exported="false" />
+        <activity
+            android:name=".EditEvent"
+            android:exported="false" />
+        <activity
+            android:name=".JoinedEvents"
+            android:exported="false" />
+        <activity
+            android:name=".PublishedEvents"
+            android:exported="false" />
+        <activity
+            android:name=".published_events"
+            android:exported="false" />
+        <activity
             android:name=".AddEvents"
             android:exported="false" />
         <activity
@@ -44,8 +71,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            >
+            android:exported="true">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
