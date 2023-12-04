@@ -155,7 +155,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEventTitle"
+            android:id="@+id/InputUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="User Name" />
