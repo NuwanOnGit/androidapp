@@ -1,11 +1,14 @@
 package com.example.androidapp;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -14,13 +17,18 @@ import android.widget.TextView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Profile extends AppCompatActivity {
 
 
     FirebaseAuth mAuth; //auth
     Button button;
-    TextView textView;
+    TextView textView,editProfileTextView,userNameTextView,userBioTextView,userExpertiseTextView,userPhoneTextView,userLocationTextView;
     FirebaseUser user;
 
     @Override
@@ -33,6 +41,50 @@ public class Profile extends AppCompatActivity {
         button = findViewById(R.id.btn_logout);
         textView = findViewById(R.id.textView);
         user = mAuth.getCurrentUser();
+        editProfileTextView = findViewById(R.id.editProfile);
+        userNameTextView = findViewById(R.id.textView3);
+        userBioTextView = findViewById(R.id.textView6);
+        userExpertiseTextView = findViewById(R.id.textView7);
+        userPhoneTextView = findViewById(R.id.textView2);
+        //userLocationTextView = findViewById(R.id.userLocation);
+
+        // Read from the database
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference userRef = database.getReference("users").child(user.getUid());
+
+        userRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // Handle data change
+                if (dataSnapshot.exists()) {
+                    // Data for the current user exists
+
+                    // Retrieve and display data in your TextViews
+                    String userName = dataSnapshot.child("userName").getValue(String.class);
+                    String userBio = dataSnapshot.child("userBio").getValue(String.class);
+                    String userExpertise = dataSnapshot.child("userExpertise").getValue(String.class);
+                    String userPhone = dataSnapshot.child("userPhone").getValue(String.class);
+                    String userLocation = dataSnapshot.child("userLocation").getValue(String.class);
+
+
+                    // Update your TextViews with the retrieved data
+                    userNameTextView.setText(userName);
+                    userBioTextView.setText(userBio);
+                    userExpertiseTextView.setText(userExpertise);
+                    userPhoneTextView.setText(userPhone);
+//                    textViewUserName.setText(userName);
+//                    textViewContactNo.setText(contactNo);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle database error
+                Log.e(TAG, "Error reading user data", databaseError.toException());
+            }
+        });
+
+
 
         if (user == null) {
             //user is not logged in
@@ -90,5 +142,20 @@ public class Profile extends AppCompatActivity {
                 return false;
             }
         });
+
+        TextView editProfileTextView = findViewById(R.id.editProfile);
+
+        editProfileTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Change the activity here
+                Intent intent = new Intent(Profile.this, EditProfile.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+        //on create block ends here
     }
 }
