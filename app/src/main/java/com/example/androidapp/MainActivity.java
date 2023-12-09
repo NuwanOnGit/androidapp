@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -45,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();//get current user id
+
         recyclerView=findViewById(R.id.recyclerView);
         //Connecting to firebase
         reference
@@ -53,12 +56,11 @@ public class MainActivity extends AppCompatActivity {
                 .getReference()
                 .child("event")
                 ;
-
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         ArrayList<Event> list=new ArrayList<>();
-        MyAdapter adapter=new MyAdapter(this,list);
+        MyAdapter adapter=new MyAdapter(this,list,currentUserId);
         recyclerView.setAdapter(adapter);
 
         reference.addValueEventListener(new ValueEventListener() {
@@ -79,6 +81,35 @@ public class MainActivity extends AppCompatActivity {
                 // Handle onCancelled event
             }
         });
+
+        //Join button code starts here
+
+        adapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
+            @Override
+            public void onJoinButtonClick(int position) {
+                // Handle the join button click event
+                Event selectedEvent = list.get(position);
+
+                // Check if the user is already joined
+                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                if (currentUser != null) {
+                    String currentUserId = currentUser.getUid();
+                    String joinedUid = selectedEvent.getEventJoinedUid();
+
+                    if (TextUtils.isEmpty(joinedUid)) {
+                        // No user has joined yet, initialize the field
+                        selectedEvent.setEventJoinedUid(currentUserId);
+                    } else {
+                        // Users have already joined, add the new user to the list
+                        selectedEvent.setEventJoinedUid(joinedUid + "," + currentUserId);
+                    }
+
+                    // Update the event in the database
+                    reference.child(selectedEvent.getEventUid()).setValue(selectedEvent);
+                }
+            }
+        });
+
         //Bottom Navigation Bar code starts here
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottomNavigationView);
         // Set Home selected
@@ -123,5 +154,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
     }
 }

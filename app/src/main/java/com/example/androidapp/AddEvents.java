@@ -97,6 +97,7 @@ public class AddEvents extends AppCompatActivity {
                                 }
                             }
                         });
+                finish();
             }
         });
 

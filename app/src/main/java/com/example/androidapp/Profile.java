@@ -46,7 +46,7 @@ public class Profile extends AppCompatActivity {
         userBioTextView = findViewById(R.id.textView6);
         userExpertiseTextView = findViewById(R.id.textView7);
         userPhoneTextView = findViewById(R.id.textView2);
-        //userLocationTextView = findViewById(R.id.userLocation);
+        userLocationTextView = findViewById(R.id.textViewLocation);
 
         // Read from the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -72,8 +72,7 @@ public class Profile extends AppCompatActivity {
                     userBioTextView.setText(userBio);
                     userExpertiseTextView.setText(userExpertise);
                     userPhoneTextView.setText(userPhone);
-//                    textViewUserName.setText(userName);
-//                    textViewContactNo.setText(contactNo);
+                    userLocationTextView.setText(userLocation);
                 }
             }
 
@@ -153,6 +152,33 @@ public class Profile extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //redirecting to published event
+        TextView textView9 = findViewById(R.id.textView9);
+
+        textView9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Change the activity to PublishedEventsActivity
+                Intent intent = new Intent(Profile.this, PublishedEvents.class);
+                startActivity(intent);
+            }
+        });
+
+
+        //redirecting to joined events
+
+        TextView textView10 = findViewById(R.id.textView10);
+
+        textView10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Change the activity to PublishedEventsActivity
+                Intent intent = new Intent(Profile.this, JoinedEvents.class);
+                startActivity(intent);
+            }
+        });
+
 
 
 

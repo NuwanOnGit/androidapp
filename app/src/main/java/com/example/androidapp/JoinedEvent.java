@@ -1,9 +1,9 @@
 package com.example.androidapp;
 
-public class Event {
+public class JoinedEvent {
     private String eventTitle, eventType, eventDate, eventLocation, eventDescription,eventExpertise,eventTalentCount,eventJoinedUid,eventUid;
 
-    public Event(String eventTitle,String eventType,String eventDate,String eventLocation,String eventDescription,String eventExpertise,String eventTalentCount,String eventJoinedUid,String eventUid) {
+    public JoinedEvent(String eventTitle,String eventType,String eventDate,String eventLocation,String eventDescription,String eventExpertise,String eventTalentCount,String eventJoinedUid,String eventUid) {
         this.eventTitle = eventTitle;
         this.eventType = eventType;
         this.eventDate = eventDate;
@@ -70,12 +70,15 @@ public class Event {
     public void setEventTalentCount(String eventTalentCount) {
         this.eventTalentCount = eventTalentCount;
     }
+
     public String getEventJoinedUid() {
         return eventJoinedUid;
     }
+
     public void setEventJoinedUid(String eventJoinedUid) {
         this.eventJoinedUid = eventJoinedUid;
     }
+
     public String getEventUid() {
         return eventUid;
     }
@@ -84,7 +87,7 @@ public class Event {
         this.eventUid = eventUid;
     }
 
-    Event(){
+    JoinedEvent() {
 
     }
 }
